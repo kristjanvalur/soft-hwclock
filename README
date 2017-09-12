@@ -1,0 +1,16 @@
+A fake hardwareclock for systemd based systems.
+Useful, for example, for Raspberry PI systems running CentOS.
+
+Sets the time to a "recent" timestamp early in the boot to avoid timestamps
+far in the past when booting, prior to getting a proper timestamp from the network.
+
+- Stores and saves the realtime clock in a file at start and shutdown.
+- Regularly saves the current time into the data file, in case of improper shutdown.
+- shell based to avoid platform and binary dependencies.
+
+Installation:
+	1) copy these files into /opt/fake-hwclock/
+        2) install the services using "bash /opt/fake-hwclock/install"
+	3) enable and start service: "systemctl enable fake-hwclock.service && systemctl start fake-hwclock.service"
+
+

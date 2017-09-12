@@ -1,0 +1,24 @@
+# Fake hwclock service
+# No default dependencies to enable very early execution.  Depends only on local filesystem
+# Manually add shudtown.target dependency because no default.
+# pulls in time-sync.target (see man systemd.special)
+# Runs before the other time sync daemons, if they are being started
+
+[Unit]
+Description=Fake Hardware Clock
+DefaultDependencies=No
+Requires=local-fs.target
+After=local-fs.target
+Wants=time-sync.target
+Conflicts=shutdown.target
+Before=shutdown.target time-sync.target ntpdate.service ntpd.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/opt/fake-hwclock/fake-hwclock load
+ExecStop=/opt/fake-hwclock/fake-hwclock save
+
+[Install]
+WantedBy=multi-user.target
+Also=fake-hwclock-tick.timer

@@ -1,0 +1,6 @@
+#!/bin/sh
+cd $(pathname "$0")
+chmod 0755 fake_hwclock
+cp *.service *.timer /etc/systemd/system
+#systemctl enable fake-hwclock.service
+#systemctl start fake-hwclock.service

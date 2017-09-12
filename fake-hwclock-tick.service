@@ -1,0 +1,7 @@
+[Unit]
+Description=Save hwclock by timer
+
+[Service]
+Type=oneshot
+ExecStart=/opt/fake-hwclock/fake-hwclock tick > /dev/null
+

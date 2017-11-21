@@ -24,7 +24,7 @@ far in the past when booting, prior to getting a proper timestamp from the netwo
 - Saves the clock into a file at shutdown
 - Regularly saves the current time into the data file, in case of improper shutdown.
 - shell based to avoid platform and binary dependencies.
-- contains fake_hwclock.service and fake-kwclock.timer services
+- contains fake_hwclock.service and fake-hwclock.timer systemd units.
 
 ## installation:
 

@@ -24,12 +24,14 @@ far in the past when booting, prior to getting a proper timestamp from the netwo
 - Saves the clock into a file at shutdown
 - Regularly saves the current time into the data file, in case of improper shutdown.
 - shell based to avoid platform and binary dependencies.
+- contains fake_hwclock.service and fake-kwclock.timer services
 
 ## installation:
 
-1. copy these files into `/opt/fake-hwclock/`
+1. copy these files into an empty folder.
 2. install the services:
-```sh /opt/fake-hwclock/install```
-3. enable and start service:
+```cd myfolder; ./install```
+This will install it into `/opt/fake-hwclock`, and the unit files into `/etc/systemd/system`.
+3. The install script has enabled and started the service, but you can also do it manually:
 ```systemctl enable fake-hwclock.service && systemctl start fake-hwclock.service```
 

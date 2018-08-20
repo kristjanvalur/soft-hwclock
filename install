@@ -1,11 +1,11 @@
 #!/bin/sh
 set -eu
-INSTALL_DIR=/opt/fake-hwclock
+INSTALL_DIR=/opt/soft-hwclock
 cd $(dirname "$0")
 mkdir "$INSTALL_DIR" || true
 cp * "$INSTALL_DIR"
 cd "$INSTALL_DIR"
-chmod 0755 fake-hwclock
+chmod 0755 soft-hwclock
 cp *.service *.timer /etc/systemd/system
-systemctl enable fake-hwclock.service
-systemctl start fake-hwclock.service
+systemctl enable soft-hwclock.service
+systemctl start soft-hwclock.service

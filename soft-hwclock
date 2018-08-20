@@ -3,7 +3,7 @@
 # Get the saved time (or empty) and clock time, in RFC399 format
 # This format sorts lexicographically
 
-CLOCKFILE="/opt/fake-hwclock/fake-hwclock.data"
+CLOCKFILE="/opt/soft-hwclock/soft-hwclock.data"
 CTIME=$(date --rfc-3339=seconds)
 FTIME=$(test -f "${CLOCKFILE}" && cat "${CLOCKFILE}")
 
